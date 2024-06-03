@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+</head>
+<body>
+    <h1>Task Manager</h1>
+    <div id="task-form">
+        <input type="text" id="task-input" placeholder="Enter a new task">
+        <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <ul id="task-list">
+        <!-- Tasks will be dynamically added here -->
+    </ul>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json-server/0.16.3/json-server.min.js"></script>
+    <script>
+        // JSON Server configuration
+        const server = jsonServer.create();
+        const router = jsonServer.router('db.json');
+        const middlewares = jsonServer.defaults();
+        server.use(middlewares);
+        server.use(router);
+        server.listen(3000, () => {
+            console.log('JSON Server is running');
+        });
+
+        // Function to fetch tasks from JSON Server
+        function fetchTasks() {
+            fetch('http://localhost:3000/tasks')
+                .then(response => response.json())
+                .then(tasks => {
+                    tasks.forEach(task => displayTask(task));
+                })
+                .catch(error => console.error('Error fetching tasks:', error));
+        }
+
+        // Function to display a task
+        function displayTask(task) {
+            const taskList = document.getElementById('task-list');
+            const taskItem = document.createElement('li');
+            taskItem.textContent = task.title;
+            if (task.completed) {
+                taskItem.classList.add('completed');
+            }
+            taskList.appendChild(taskItem);
+        }
+
+        // Function to add a task
+        function addTask() {
+            const taskInput = document.getElementById('task-input').value;
+            if (taskInput.trim() !== '') {
+                const newTask = { title: taskInput, completed: false };
+                // TODO: Add the new task to JSON Server
+                // TODO: Display the new task in the UI
+            }
+        }
+
+        // Function to delete a task
+        function deleteTask(taskId) {
+            // TODO: Delete the task from JSON Server
+            // TODO: Remove the task from the UI
+        }
+
+        // Function to mark a task as completed
+        function toggleTaskCompletion(taskId) {
+            // TODO: Toggle the completion status of the task in JSON Server
+            // TODO: Update the UI to reflect the new completion status
+        }
+
+        // Initial setup
+        window.onload = () => {
+            fetchTasks();
+        };
+    </script>
+    <style>
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+</body>
+</html>

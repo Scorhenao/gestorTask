@@ -1,0 +1,25 @@
+Funcionalidad para Agregar Tareas:
+
+Implementa la función addTask() para agregar una nueva tarea al JSON Server (http://localhost:3000/tasks) cuando se hace clic en el botón "Add Task".
+Muestra la nueva tarea añadida en la interfaz de usuario.
+Funcionalidad para Borrar Tareas:
+
+Implementa la función deleteTask(taskId) para eliminar una tarea del JSON Server cuando el usuario hace clic en un botón de eliminar asociado a la tarea.
+Elimina la tarea de la interfaz de usuario cuando se elimina.
+Funcionalidad para Alternar Estado de Completado de Tareas:
+
+Implementa la función toggleTaskCompletion(taskId) para alternar el estado de completado de una tarea en el JSON Server cuando el usuario hace clic en
+la tarea.
+
+Actualiza la interfaz de usuario para reflejar el nuevo estado de completado (por ejemplo, tachado para tareas completadas).
+Integración con Almacenamiento Local:
+
+Utiliza el almacenamiento local para almacenar tareas temporalmente en caso de que el servidor no esté disponible (por ejemplo, el usuario agrega tareas mientras está fuera de línea). Sincroniza las tareas con el servidor una vez que vuelva a estar en línea.
+Enrutamiento (Encarpetado):
+
+Implementa el enrutamiento para navegar entre diferentes vistas/páginas (por ejemplo, Inicio, Acerca de, Contacto).
+Crea archivos HTML separados para cada vista/página y vincúlalos entre sí usando etiquetas de anclaje (<a>).
+Elementos Dinámicos:
+
+Haz que los elementos de las tareas (elementos de la lista) sean dinámicos permitiendo a los usuarios editar los títulos de las tareas directamente
+en la interfaz de usuario. Actualiza la tarea correspondiente en el JSON Server cuando el usuario termine de editar.
